@@ -1,32 +1,30 @@
 import Vue from 'vue';
+import { create, formatters } from 'jsondiffpatch';
 
-Vue.prototype.$detectDifference = (
+const diffpatcher = create({
+  objectHash: function(obj: any) {
+    return obj.name;
+  }
+});
+
+Vue.prototype.$applyJsonDiff = (
   leftJson: string,
   rightJson: string
-): { [key: string]: number } => {
+): { [key: string]: string } => {
   try {
-    const left: { [key: string]: string } = JSON.parse(leftJson);
-    const right: { [key: string]: string } = JSON.parse(rightJson);
-    const keys: string[] = Array.from(
-      new Set(Object.keys(left).concat(Object.keys(right)))
-    );
+    const left = JSON.parse(leftJson);
+    const right = JSON.parse(rightJson);
+    const leftDelta = diffpatcher.diff(left, right);
+    const rightDelta = diffpatcher.diff(right, left);
+    if (leftDelta && rightDelta) {
+      return {
+        left: formatters.html.format(leftDelta, left),
+        right: formatters.html.format(rightDelta, right)
+      };
+    }
+  } catch (e) {}
 
-    return keys
-      .map((key: string) => {
-        if (left[key] === right[key]) {
-          return { [key]: 1 };
-        } else if (!left[key]) {
-          return { [key]: 2 };
-        } else if (!right[key]) {
-          return { [key]: 3 };
-        } else {
-          return { [key]: 0 };
-        }
-      })
-      .reduce((l, r) => Object.assign(l, r), {});
-  } catch (e) {
-    return {};
-  }
+  return { left: '', right: '' };
 };
 
 Vue.prototype.$isValidJson = (json: string): boolean => {

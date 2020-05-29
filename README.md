@@ -19,4 +19,11 @@ $ yarn start
 $ yarn generate
 ```
 
+## Reference
+
+- [benjamine/jsondiffpatch](https://github.com/benjamine/jsondiffpatch)
+- [JsonDiffPatch](https://benjamine.github.io/jsondiffpatch/demo/index.html)
+- [annotated.css](https://benjamine.github.io/jsondiffpatch/formatters-styles/annotated.css)
+- [html.css](https://benjamine.github.io/jsondiffpatch/formatters-styles/html.css)
+
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
