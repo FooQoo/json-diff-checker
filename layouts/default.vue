@@ -1,5 +1,5 @@
 <template>
-  <v-app v-cloak>
+  <v-app>
     <v-app-bar class="header-block">
       <a class="routerLink" href="/">
         <v-toolbar-title v-text="title" />
@@ -10,7 +10,7 @@
       </div>
     </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container v-if="!this.$store.state.loading">
         <nuxt />
       </v-container>
     </v-content>
@@ -49,14 +49,14 @@ export default {
       copyright: 'Copyright © 2020 FooQoo. All Rights Reserved.',
       title: 'Json Diff Checker'
     };
+  },
+  mounted() {
+    setTimeout(() => this.$store.commit('stopLoading'), 5);
   }
 };
 </script>
 
 <style lang="scss">
-[v-cloak] > * {
-  display: none !important;
-}
 .header-block {
   width: 100%;
   max-height: 64px;
