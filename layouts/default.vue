@@ -49,7 +49,7 @@
 export default {
   data() {
     return {
-      copyright: 'Copyright © 2020 FooQoo Inc. All Rights Reserved.',
+      copyright: 'Copyright © 2020 FooQoo. All Rights Reserved.',
       title: 'Json Diff Checker'
     };
   }
