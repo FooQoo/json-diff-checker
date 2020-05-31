@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ec220424-2d66-4dc9-845e-2d562a10349d/deploy-status)](https://app.netlify.com/sites/competent-cori-645103/deploys)
+
 # json-diff-checker
 
 > To detect differrence of two json files
@@ -25,5 +27,3 @@ $ yarn generate
 - [JsonDiffPatch](https://benjamine.github.io/jsondiffpatch/demo/index.html)
 - [annotated.css](https://benjamine.github.io/jsondiffpatch/formatters-styles/annotated.css)
 - [html.css](https://benjamine.github.io/jsondiffpatch/formatters-styles/html.css)
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

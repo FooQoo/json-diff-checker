@@ -22,7 +22,7 @@
         >
           <ShareNetwork
             network="facebook"
-            url="https://news.vuejs.org/issues/180"
+            url="https://json-diff-checker.fooqoo56.com/"
             title="Json Diff Checker"
             class="ma-4"
           >
@@ -30,7 +30,7 @@
           </ShareNetwork>
           <ShareNetwork
             network="twitter"
-            url="https://news.vuejs.org/issues/180"
+            url="https://json-diff-checker.fooqoo56.com/"
             title="Json Diff Checker"
             class="ma-4"
           >
