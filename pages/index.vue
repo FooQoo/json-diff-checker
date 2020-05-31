@@ -27,20 +27,26 @@
       <v-row no-gutters>
         <v-col>
           <div class="btn-block">
-            <v-btn v-on:click="resetJson" max-width="100" min-width="100">Reset</v-btn>
+            <v-btn v-on:click="resetJson" max-width="100" min-width="100"
+              >Reset</v-btn
+            >
           </div>
         </v-col>
         <v-col>
           <div class="btn-block">
-            <v-btn v-on:click="compareJson" max-width="100" min-width="100">Compare</v-btn>
+            <v-btn v-on:click="compareJson" max-width="100" min-width="100"
+              >Compare</v-btn
+            >
           </div>
         </v-col>
         <v-col>
           <div class="btn-block">
-            <v-btn v-on:click="toggleCompareMode" max-width="100" min-width="100">
-              {{
-              leftMode ? 'Left diff' : 'Right diff'
-              }}
+            <v-btn
+              v-on:click="toggleCompareMode"
+              max-width="100"
+              min-width="100"
+            >
+              {{ leftMode ? 'Left diff' : 'Right diff' }}
             </v-btn>
           </div>
         </v-col>
@@ -56,7 +62,9 @@
       </v-row>
       <v-row no-gutters v-if="showValid">
         <v-col class="mx-4 my-12">
-          <v-alert type="warning" icon="mdi-alert">Invalid json format.</v-alert>
+          <v-alert type="warning" icon="mdi-alert"
+            >Invalid json format.</v-alert
+          >
         </v-col>
       </v-row>
     </v-flex>
@@ -65,9 +73,9 @@
 
 <script>
 const LEFT_JSON_DEFAULT =
-  '{\n\t"name": "Tanaka Taro",\n\t"sex": "man",\n\t"children": [\n\t\t"Hanako",\n\t\t"Takashi"\n\t]\n}';
+  '{\n\t"name": "Tanaka Taro",\n\t"gender": "male",\n\t"children": [\n\t\t"Hanako",\n\t\t"Takashi"\n\t]\n}';
 const RIGHT_JSON_DEFAULT =
-  '{\n\t"name": "Tanaka Kyoko",\n\t"sex": "woman",\n\t"children": [\n\t\t"Fujiko"\n\t]\n}';
+  '{\n\t"name": "Tanaka Kyoko",\n\t"gender": "female",\n\t"children": [\n\t\t"Fujiko"\n\t]\n}';
 
 export default {
   data: () => {
