@@ -1,44 +1,181 @@
 <template>
   <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <v-card>
-        <v-card-title class="headline">
-          Left Difference
-        </v-card-title>
-        <v-card-text v-html="$store.state.diff.left" />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Right Difference
-        </v-card-title>
-        <v-card-text v-html="$store.state.diff.right" />
-      </v-card>
+    <v-flex xs24 sm16 md12 style="width: 100%;">
+      <v-row no-gutters>
+        <v-col class="mx-4 my-12">
+          <v-card class="px-10">
+            <v-textarea
+              v-model="leftJson"
+              rows="10"
+              @keydown.prevent.tab.exact="addTab($event, 'leftArea')"
+              @keydown.prevent.enter.exact="addIndentEnter($event, 'leftArea')"
+            />
+          </v-card>
+        </v-col>
+        <v-col class="mx-4 my-12">
+          <v-card class="px-10">
+            <v-textarea
+              v-model="rightJson"
+              rows="10"
+              @keydown.prevent.tab.exact="addTab($event, 'rightArea')"
+              @keydown.prevent.enter.exact="addIndentEnter($event, 'rightArea')"
+            />
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters>
+        <v-col>
+          <div class="btn-block">
+            <v-btn v-on:click="resetJson" max-width="100" min-width="100"
+              >Reset</v-btn
+            >
+          </div>
+        </v-col>
+        <v-col>
+          <div class="btn-block">
+            <v-btn v-on:click="compareJson" max-width="100" min-width="100"
+              >Compare</v-btn
+            >
+          </div>
+        </v-col>
+        <v-col>
+          <div class="btn-block">
+            <v-btn v-on:click="toggleMode" max-width="100" min-width="100">{{
+              leftMode ? 'Left diff' : 'Right diff'
+            }}</v-btn>
+          </div>
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters v-if="showDifference">
+        <v-col class="mx-4 my-12">
+          <v-card>
+            <v-card-title class="headline">Difference</v-card-title>
+            <v-card-text v-html="$store.state.diff.left" />
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row no-gutters v-if="showValid">
+        <v-col class="mx-4 my-12">
+          <v-alert type="warning" icon="mdi-alert">
+            Invalid json format.
+          </v-alert>
+        </v-col>
+      </v-row>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
-import VuetifyLogo from '~/components/VuetifyLogo.vue';
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
+  data: () => {
+    return {
+      leftJson:
+        '{\n\t"name": "Tanaka Taro",\n\t"sex": "man",\n\t"children": [\n\t\t"Hanako",\n\t\t"Takashi"\n\t]\n}',
+      rightJson:
+        '{\n\t"name": "Tanaka Kyoko",\n\t"sex": "woman",\n\t"children": [\n\t\t"Fujiko"\n\t]\n}',
+      showDifference: false,
+      showValid: false,
+      leftMode: true
+    };
   },
-  mounted() {
-    const diff = this.$applyJsonDiff(
-      '{"name": "Jon", "sex": "male", "desc": "hoge", "list": [{"entity": 1}]}',
-      '{"name": "Jon", "sex": "female", "role": "king", "list": [{"entity": 2}]}'
-    );
-    this.$store.commit('setDiff', diff);
-    console.log(this.$store.state.diff.left);
-    console.log(this.$store.state.diff.right);
+  methods: {
+    toggleMode: function() {
+      this.leftMode = !this.leftMode;
+    },
+    compareJson: function(event) {
+      if (
+        this.$isValidJson(this.leftJson) &&
+        this.$isValidJson(this.rightJson)
+      ) {
+        const leftJson = this.leftMode ? this.leftJson : this.rightJson;
+        const rightJson = this.leftMode ? this.rightJson : this.leftJson;
+        const diff = this.$applyJsonDiff(
+          this.removeSpace(leftJson),
+          this.removeSpace(rightJson)
+        );
+        this.$store.commit('setDiff', diff);
+        this.showDifference = true;
+        this.showValid = false;
+      } else {
+        this.showDifference = false;
+        this.showValid = true;
+      }
+    },
+    resetJson: function(event) {
+      this.leftJson = '';
+      this.rightJson = '';
+      this.$store.commit('setDiff', { left: '', right: '' });
+      this.showDifference = false;
+      this.showValid = false;
+    },
+    addTab: function(event, area) {
+      if (event) {
+        const text =
+          area === 'leftArea'
+            ? this.leftJson
+            : area === 'rightArea'
+            ? this.rightJson
+            : '';
+        const originalSelectionStart = event.target.selectionStart;
+        const startText = text.slice(0, originalSelectionStart);
+        const endText = text.slice(originalSelectionStart);
+        const tabAddedText = `${startText}\t${endText}`;
+        if (area === 'leftArea') {
+          this.leftJson = tabAddedText;
+          event.target.value = this.leftJson;
+        } else if (area === 'rightArea') {
+          this.rightJson = tabAddedText;
+          event.target.value = this.rightJson;
+        }
+
+        event.target.selectionEnd = event.target.selectionStart =
+          originalSelectionStart + 1;
+      }
+    },
+    addIndentEnter: function(event, area) {
+      if (event) {
+        const text =
+          area === 'leftArea'
+            ? this.leftJson
+            : area === 'rightArea'
+            ? this.rightJson
+            : '';
+        const originalSelectionStart = event.target.selectionStart;
+        const startText = text.slice(0, originalSelectionStart);
+        const numTabBeforeLine =
+          startText
+            .split('\n')
+            .slice(-1)[0]
+            .split('\t').length - 1;
+        const endText = text.slice(originalSelectionStart);
+        const tabAddedText = `${startText}\n${'\t'.repeat(
+          numTabBeforeLine
+        )}${endText}`;
+        if (area === 'leftArea') {
+          this.leftJson = tabAddedText;
+          event.target.value = this.leftJson;
+        } else if (area === 'rightArea') {
+          this.rightJson = tabAddedText;
+          event.target.value = this.rightJson;
+        }
+
+        event.target.selectionEnd = event.target.selectionStart =
+          originalSelectionStart + 1 + numTabBeforeLine;
+      }
+    },
+    removeSpace: function(json) {
+      return json.replace(/\r?\n/g, '').replace(/\t/g, '');
+    }
   }
 };
 </script>
 
-<style>
+<style lang="scss">
+.btn-block {
+  text-align: center;
+}
 .jsondiffpatch-delta {
   font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Courier,
     monospace;
@@ -201,96 +338,5 @@ ul.jsondiffpatch-textdiff {
   background: red;
   color: white;
   font-weight: bold;
-}
-
-.jsondiffpatch-visualdiff-root {
-  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Courier,
-    monospace;
-  font-size: 0.8em;
-  margin: 20px;
-}
-
-.jsondiffpatch-unchanged {
-  color: gray;
-}
-
-.jsondiffpatch-added span,
-.jsondiffpatch-added p {
-  background: #bbffbb;
-}
-
-.jsondiffpatch-deleted span,
-.jsondiffpatch-deleted p {
-  background: #ffbbbb;
-  text-decoration: line-through;
-}
-
-.jsondiffpatch-deleted span:hover {
-  text-decoration: none;
-}
-
-.jsondiffpatch-deleted p:hover {
-  text-decoration: none;
-}
-
-.jsondiffpatch-textdiff .jsondiffpatch-added {
-  background: #bbffbb;
-}
-
-.jsondiffpatch-textdiff .jsondiffpatch-deleted {
-  background: #ffbbbb;
-  text-decoration: line-through;
-}
-
-.jsondiffpatch-textdiff .jsondiffpatch-deleted:hover {
-  text-decoration: none;
-}
-
-.jsondiffpatch-textdiff .jsondiffpatch-header {
-  color: gray;
-  display: block;
-}
-
-.jsondiffpatch-modified-original {
-  background: #ffbbbb;
-}
-
-.jsondiffpatch-modified-original > div > p {
-  text-decoration: line-through;
-}
-
-.jsondiffpatch-modified-original > div > p:hover {
-  text-decoration: none;
-}
-
-.jsondiffpatch-modified-new {
-  margin-left: 5px;
-  background: #bbffbb;
-}
-
-.jsondiffpatch-visualdiff-root p {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  vertical-align: top;
-  min-height: 17px;
-}
-
-.jsondiffpatch-property-name {
-  margin: 0;
-  padding: 0 10px 0 0;
-  display: inline-block;
-  min-height: 17px;
-  font-style: italic;
-}
-
-.jsondiffpatch-visualdiff-root ul {
-  padding-left: 20px;
-  border-left: 1px dotted gray;
-}
-
-.jsondiffpatch-modified-original,
-.jsondiffpatch-modified-new {
-  float: left;
 }
 </style>

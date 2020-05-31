@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { create, formatters } from 'jsondiffpatch';
+import '@mdi/font/css/materialdesignicons.css';
 
 const diffpatcher = create({
   objectHash: function(obj: any) {
@@ -27,7 +28,8 @@ Vue.prototype.$applyJsonDiff = (
   return { left: '', right: '' };
 };
 
-Vue.prototype.$isValidJson = (json: string): boolean => {
+const isValidJson = (json: string): boolean => {
+  if (json === '') return false;
   try {
     JSON.parse(json);
   } catch (e) {
@@ -35,3 +37,5 @@ Vue.prototype.$isValidJson = (json: string): boolean => {
   }
   return true;
 };
+
+Vue.prototype.$isValidJson = isValidJson;
