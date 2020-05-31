@@ -118,5 +118,10 @@ module.exports = {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss']
+  },
+  build: {
+    parallel: true,
+    cache: true,
+    hardsource: true
   }
 };

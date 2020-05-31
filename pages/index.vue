@@ -1,5 +1,5 @@
 <template>
-  <v-layout column justify-center align-center>
+  <v-layout column justify-center align-center v-cloak>
     <v-flex xs24 sm16 md12 style="width: 100%;">
       <v-row no-gutters>
         <v-col class="mx-4 my-12">
@@ -27,16 +27,12 @@
       <v-row no-gutters>
         <v-col>
           <div class="btn-block">
-            <v-btn v-on:click="resetJson" max-width="100" min-width="100"
-              >Reset</v-btn
-            >
+            <v-btn v-on:click="resetJson" max-width="100" min-width="100">Reset</v-btn>
           </div>
         </v-col>
         <v-col>
           <div class="btn-block">
-            <v-btn v-on:click="compareJson" max-width="100" min-width="100"
-              >Compare</v-btn
-            >
+            <v-btn v-on:click="compareJson" max-width="100" min-width="100">Compare</v-btn>
           </div>
         </v-col>
         <v-col>
@@ -45,9 +41,7 @@
               v-on:click="toggleCompareMode"
               max-width="100"
               min-width="100"
-            >
-              {{ leftMode ? 'Left diff' : 'Right diff' }}
-            </v-btn>
+            >{{ leftMode ? 'Left diff' : 'Right diff' }}</v-btn>
           </div>
         </v-col>
       </v-row>
@@ -62,9 +56,7 @@
       </v-row>
       <v-row no-gutters v-if="showValid">
         <v-col class="mx-4 my-12">
-          <v-alert type="warning" icon="mdi-alert"
-            >Invalid json format.</v-alert
-          >
+          <v-alert type="warning" icon="mdi-alert">Invalid json format.</v-alert>
         </v-col>
       </v-row>
     </v-flex>
