@@ -6,18 +6,27 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: 'Json Diff Checker',
+    title: 'Json Diff Checker',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: 'Json Diff Checker'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
+        integrity:
+          'sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt',
+        crossorigin: 'anonymous'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -38,7 +47,8 @@ module.exports = {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
   ],
   /*
    ** Nuxt.js modules
@@ -48,7 +58,9 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'vue-social-sharing/nuxt',
+    '@nuxtjs/google-analytics'
   ],
   /*
    ** Axios module configuration
@@ -59,6 +71,9 @@ module.exports = {
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
+  googleAnalytics: {
+    id: 'UA-12301-2'
+  },
   vuetify: {
     customVariables: ['~/assets/variables.scss']
   }

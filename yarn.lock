@@ -1063,6 +1063,12 @@
     consola "^2.11.3"
     eslint-loader "^4.0.2"
 
+"@nuxtjs/google-analytics@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/google-analytics/-/google-analytics-2.3.0.tgz#d4c900e4bc5b91b23da33e5764d6a9a6236d78fd"
+  dependencies:
+    vue-analytics "^5.22.1"
+
 "@nuxtjs/proxy@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@nuxtjs/proxy/-/proxy-1.3.3.tgz#3de3d9f073e8e57167168100940be2a824a220e0"
@@ -1112,10 +1118,6 @@
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
   dependencies:
     any-observable "^0.3.0"
-
-"@sphinxxxx/color-conversion@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@sphinxxxx/color-conversion/-/color-conversion-2.2.2.tgz#03ecc29279e3c0c832f6185a5bfa3497858ac8ca"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -1666,10 +1668,6 @@ accepts@~1.3.5, accepts@~1.3.7:
   dependencies:
     mime-types "~2.1.24"
     negotiator "0.6.2"
-
-ace-builds@^1.4.11:
-  version "1.4.11"
-  resolved "https://registry.yarnpkg.com/ace-builds/-/ace-builds-1.4.11.tgz#b1f19a891afcef1d26522473082baf80067e855f"
 
 acorn-jsx@^5.2.0:
   version "5.2.0"
@@ -2493,12 +2491,6 @@ cli-boxes@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-2.2.0.tgz#538ecae8f9c6ca508e3c3c95b453fe93cb4c168d"
 
-cli-color@~0.1.6:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/cli-color/-/cli-color-0.1.7.tgz#adc3200fa471cc211b0da7f566b71e98b9d67347"
-  dependencies:
-    es5-ext "0.8.x"
-
 cli-cursor@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/cli-cursor/-/cli-cursor-3.1.0.tgz#264305a7ae490d1d03bf0c9ba7c925d1753af307"
@@ -3174,12 +3166,6 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
-difflib@~0.2.1:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/difflib/-/difflib-0.2.4.tgz#b5e30361a6db023176d562892db85940a718f47e"
-  dependencies:
-    heap ">= 0.2.0"
-
 dimport@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/dimport/-/dimport-1.0.0.tgz#d5c09564f621e7b24b2e333cccdf9b2303011644"
@@ -3265,12 +3251,6 @@ dot-prop@^5.2.0:
 dotenv@^8.1.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
-
-dreamopt@~0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/dreamopt/-/dreamopt-0.6.0.tgz#d813ccdac8d39d8ad526775514a13dda664d6b4b"
-  dependencies:
-    wordwrap ">=0.0.2"
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -3406,10 +3386,6 @@ es-to-primitive@^1.2.1:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
-
-es5-ext@0.8.x:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.8.2.tgz#aba8d9e1943a895ac96837a62a39b3f55ecd94ab"
 
 es6-object-assign@^1.1.0:
   version "1.1.0"
@@ -4362,10 +4338,6 @@ he@1.2.x, he@^1.1.0, he@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
 
-"heap@>= 0.2.0":
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/heap/-/heap-0.2.6.tgz#087e1f10b046932fc8594dd9e6d378afc9d1e5ac"
-
 hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
@@ -4976,10 +4948,6 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
-javascript-natural-sort@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz#f9e2303d4507f6d74355a73664d1440fb5a0ef59"
-
 jest-worker@^25.4.0:
   version "25.5.0"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-25.5.0.tgz#2611d071b79cea0f43ee57a3d118593ac1547db1"
@@ -4990,10 +4958,6 @@ jest-worker@^25.4.0:
 jimp-compact@^0.8.0:
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/jimp-compact/-/jimp-compact-0.8.5.tgz#4dd5be1df94111902a58e6e698cbbdea9bdc1e0b"
-
-jmespath@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/jmespath/-/jmespath-0.15.0.tgz#a3f222a9aae9f966f5d27c796510e28091764217"
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -5014,14 +4978,6 @@ jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
 
-json-diff@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/json-diff/-/json-diff-0.5.4.tgz#7bc8198c441756632aab66c7d9189d365a7a035a"
-  dependencies:
-    cli-color "~0.1.6"
-    difflib "~0.2.1"
-    dreamopt "~0.6.0"
-
 json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
@@ -5029,10 +4985,6 @@ json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
 json-schema-traverse@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz#69f6a87d9513ab8bb8fe63bdb0979c448e684660"
-
-json-source-map@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/json-source-map/-/json-source-map-0.6.1.tgz#e0b1f6f4ce13a9ad57e2ae165a24d06e62c79a0f"
 
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
@@ -5060,19 +5012,6 @@ jsondiffpatch@^0.4.1:
   dependencies:
     chalk "^2.3.0"
     diff-match-patch "^1.0.0"
-
-jsoneditor@^8.6.4:
-  version "8.6.8"
-  resolved "https://registry.yarnpkg.com/jsoneditor/-/jsoneditor-8.6.8.tgz#2d90aa2a4ffcc1f9069728115de58414c2fd80e4"
-  dependencies:
-    ace-builds "^1.4.11"
-    ajv "^6.12.2"
-    javascript-natural-sort "^0.7.1"
-    jmespath "^0.15.0"
-    json-source-map "^0.6.1"
-    mobius1-selectr "^2.4.13"
-    picomodal "^3.0.0"
-    vanilla-picker "^2.10.1"
 
 jsonfile@^4.0.0:
   version "4.0.0"
@@ -5667,10 +5606,6 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-mobius1-selectr@^2.4.13:
-  version "2.4.13"
-  resolved "https://registry.yarnpkg.com/mobius1-selectr/-/mobius1-selectr-2.4.13.tgz#0019dfd9f984840d6e40f70683ab3ec78ce3b5df"
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -6239,10 +6174,6 @@ pbkdf2@^3.0.3:
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
-
-picomodal@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/picomodal/-/picomodal-3.0.0.tgz#facd30f4fbf34a809c1e04ea525f004f399c0b82"
 
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
@@ -8671,12 +8602,6 @@ uuid@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
 
-v-jsoneditor@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/v-jsoneditor/-/v-jsoneditor-1.4.1.tgz#d1a19e84c341037c6439e65c3ecb10472f77f1f9"
-  dependencies:
-    jsoneditor "^8.6.4"
-
 v8-compile-cache@^2.0.3:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.1.1.tgz#54bc3cdd43317bca91e35dcaf305b1a7237de745"
@@ -8687,12 +8612,6 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
-
-vanilla-picker@^2.10.1:
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/vanilla-picker/-/vanilla-picker-2.10.1.tgz#b07d6df8e0c3655e39a7da11e68adc00affa2b12"
-  dependencies:
-    "@sphinxxxx/color-conversion" "^2.2.2"
 
 vary@^1.1.2, vary@~1.1.2:
   version "1.1.2"
@@ -8732,6 +8651,10 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
 
+vue-analytics@^5.22.1:
+  version "5.22.1"
+  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
+
 vue-client-only@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/vue-client-only/-/vue-client-only-2.0.0.tgz#ddad8d675ee02c761a14229f0e440e219de1da1c"
@@ -8747,15 +8670,13 @@ vue-eslint-parser@^7.0.0:
     esquery "^1.0.1"
     lodash "^4.17.15"
 
+vue-github-badge@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-github-badge/-/vue-github-badge-1.0.1.tgz#dff7ce07320e64a218edf106b15a43176ec06106"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
-
-vue-json-editor@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/vue-json-editor/-/vue-json-editor-1.4.0.tgz#becc398f9f101d3775afea7e0dae2fd00dd0d2fd"
-  dependencies:
-    vue "^2.2.6"
 
 vue-loader@^15.9.1:
   version "15.9.2"
@@ -8794,6 +8715,10 @@ vue-server-renderer@^2.6.11:
     serialize-javascript "^2.1.2"
     source-map "0.5.6"
 
+vue-social-sharing@^3.0.0-beta.10:
+  version "3.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/vue-social-sharing/-/vue-social-sharing-3.0.0-beta.10.tgz#0e634322a09153166a211f149714fe52a31fdf77"
+
 vue-style-loader@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
@@ -8812,13 +8737,9 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
 
-vue@^2.2.6, vue@^2.6.11:
+vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
-
-vuelidate@^0.7.5:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.5.tgz#ff48c75ae9d24ea24c24e9ea08065eda0a0cba0a"
 
 vuetify-loader@^1.4.3:
   version "1.4.4"
@@ -9007,10 +8928,6 @@ widest-line@^3.1.0:
 word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
-
-wordwrap@>=0.0.2:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
 
 workbox-cdn@^4.3.1:
   version "4.3.1"

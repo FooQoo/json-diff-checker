@@ -1,9 +1,13 @@
 <template>
   <v-app dark>
     <v-app-bar class="header-block">
-      <nuxt-link class="routerLink" to="/">
+      <a class="routerLink" href="/">
         <v-toolbar-title v-text="title" />
-      </nuxt-link>
+      </a>
+
+      <div>
+        <github-badge slug="FooQoo/json-diff-checker" />
+      </div>
     </v-app-bar>
     <v-content>
       <v-container>
@@ -11,7 +15,32 @@
       </v-container>
     </v-content>
     <v-footer class="footer-block">
-      <v-col class="copyright text-center">&copy; {{ copyright }}</v-col>
+      <v-flex xs24 sm16 md12>
+        <v-row
+          no-gutters
+          style="display: flex; justify-content: center;align-items: center;"
+        >
+          <ShareNetwork
+            network="facebook"
+            url="https://news.vuejs.org/issues/180"
+            title="Json Diff Checker"
+            class="ma-4"
+          >
+            <i class="fab fa-facebook fa-2x"></i>
+          </ShareNetwork>
+          <ShareNetwork
+            network="twitter"
+            url="https://news.vuejs.org/issues/180"
+            title="Json Diff Checker"
+            class="ma-4"
+          >
+            <i class="fab fa-twitter fa-2x"></i>
+          </ShareNetwork>
+        </v-row>
+        <v-row no-gutters>
+          <v-col class="copyright text-center">{{ copyright }}</v-col>
+        </v-row>
+      </v-flex>
     </v-footer>
   </v-app>
 </template>
@@ -30,7 +59,7 @@ export default {
 <style lang="scss">
 .header-block {
   width: 100%;
-  max-height: 51px;
+  max-height: 64px;
   padding: 0 15%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background-color: #ffffff !important;
@@ -41,7 +70,7 @@ export default {
     .v-toolbar__title {
       height: 100%;
       font-family: Georgia;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: bold;
       color: #000000;
       padding: 0 !important;

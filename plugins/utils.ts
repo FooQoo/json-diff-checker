@@ -1,6 +1,11 @@
 import Vue from 'vue';
 import { create, formatters } from 'jsondiffpatch';
 import '@mdi/font/css/materialdesignicons.css';
+const GitHubBadge = require('vue-github-badge');
+const VueSocialSharing = require('vue-social-sharing');
+
+Vue.use(VueSocialSharing);
+Vue.component('github-badge', GitHubBadge);
 
 const diffpatcher = create({
   objectHash: function(obj: any) {

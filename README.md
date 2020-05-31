@@ -1,4 +1,4 @@
-# json-pollice
+# json-diff-checker
 
 > To detect differrence of two json files
 
