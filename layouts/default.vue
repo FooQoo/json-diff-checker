@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-app-bar class="header-block">
       <a class="routerLink" href="/">
         <v-toolbar-title v-text="title" />
@@ -10,16 +10,13 @@
       </div>
     </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container v-if="!this.$store.state.loading">
         <nuxt />
       </v-container>
     </v-content>
     <v-footer class="footer-block">
       <v-flex xs24 sm16 md12>
-        <v-row
-          no-gutters
-          style="display: flex; justify-content: center;align-items: center;"
-        >
+        <v-row no-gutters style="display: flex; justify-content: center;align-items: center;">
           <ShareNetwork
             network="facebook"
             url="https://json-diff-checker.fooqoo56.com/"
@@ -52,6 +49,9 @@ export default {
       copyright: 'Copyright © 2020 FooQoo. All Rights Reserved.',
       title: 'Json Diff Checker'
     };
+  },
+  mounted() {
+    setTimeout(() => this.$store.commit('stopLoading'), 5);
   }
 };
 </script>
