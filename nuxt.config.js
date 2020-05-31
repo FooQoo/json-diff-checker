@@ -40,7 +40,7 @@ module.exports = {
         hid: 'og:image',
         property: 'og:image',
         content:
-          'https://json-diff-checker.fooqoo56.com/v1590927728/Icon_dimtxx.png'
+          'https://json-diff-checker.fooqoo56.com/image/v1590927728/Icon_dimtxx.png'
       },
       {
         property: 'article:publisher',
@@ -61,7 +61,7 @@ module.exports = {
       {
         name: 'twitter:image',
         content:
-          'https://json-diff-checker.fooqoo56.com/v1590927728/Icon_dimtxx.png'
+          'https://json-diff-checker.fooqoo56.com/image/v1590927728/Icon_dimtxx.png'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
