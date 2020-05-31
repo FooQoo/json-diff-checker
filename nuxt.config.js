@@ -39,7 +39,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/utils.ts'],
+  plugins: ['~/plugins/utils.ts', { src: '~/plugins/ga.js', mode: 'client' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -47,8 +47,7 @@ module.exports = {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/vuetify',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/vuetify'
   ],
   /*
    ** Nuxt.js modules
@@ -59,8 +58,7 @@ module.exports = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    'vue-social-sharing/nuxt',
-    '@nuxtjs/google-analytics'
+    'vue-social-sharing/nuxt'
   ],
   /*
    ** Axios module configuration
@@ -71,9 +69,6 @@ module.exports = {
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
-  googleAnalytics: {
-    id: 'UA-12301-2'
-  },
   vuetify: {
     customVariables: ['~/assets/variables.scss']
   }
