@@ -1,5 +1,5 @@
 <template>
-  <v-layout column justify-center align-center v-cloak>
+  <v-layout column justify-center align-center>
     <v-flex xs24 sm16 md12 style="width: 100%;">
       <v-row no-gutters>
         <v-col class="mx-4 my-12">

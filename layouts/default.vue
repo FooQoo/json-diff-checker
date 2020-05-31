@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app v-cloak>
     <v-app-bar class="header-block">
       <a class="routerLink" href="/">
         <v-toolbar-title v-text="title" />
@@ -16,10 +16,7 @@
     </v-content>
     <v-footer class="footer-block">
       <v-flex xs24 sm16 md12>
-        <v-row
-          no-gutters
-          style="display: flex; justify-content: center;align-items: center;"
-        >
+        <v-row no-gutters style="display: flex; justify-content: center;align-items: center;">
           <ShareNetwork
             network="facebook"
             url="https://json-diff-checker.fooqoo56.com/"
@@ -57,6 +54,9 @@ export default {
 </script>
 
 <style lang="scss">
+[v-cloak] > * {
+  display: none !important;
+}
 .header-block {
   width: 100%;
   max-height: 64px;
