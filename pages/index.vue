@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-v-html */
 <template>
   <v-layout column justify-center align-center>
     <v-flex xs24 sm16 md12 style="width: 100%;">
@@ -27,36 +28,40 @@
       <v-row no-gutters>
         <v-col>
           <div class="btn-block">
-            <v-btn v-on:click="resetJson" max-width="100" min-width="100">Reset</v-btn>
+            <v-btn max-width="100" min-width="100" @click="resetJson"
+              >Reset</v-btn
+            >
           </div>
         </v-col>
         <v-col>
           <div class="btn-block">
-            <v-btn v-on:click="compareJson" max-width="100" min-width="100">Compare</v-btn>
+            <v-btn max-width="100" min-width="100" @click="compareJson"
+              >Compare</v-btn
+            >
           </div>
         </v-col>
         <v-col>
           <div class="btn-block">
-            <v-btn
-              v-on:click="toggleCompareMode"
-              max-width="100"
-              min-width="100"
-            >{{ leftMode ? 'Left diff' : 'Right diff' }}</v-btn>
+            <v-btn min-width="100" max-width="100" @click="toggleCompareMode">
+              {{ leftMode ? 'Left diff' : 'Right diff' }}
+            </v-btn>
           </div>
         </v-col>
       </v-row>
 
-      <v-row no-gutters v-if="showDifference">
+      <v-row v-if="showDifference" no-gutters>
         <v-col class="mx-4 my-12">
           <v-card>
             <v-card-title class="headline">Difference</v-card-title>
-            <v-card-text v-html="$store.state.diff.left" />
+            <v-card-text class="diff" v-html="$store.state.diff.left" />
           </v-card>
         </v-col>
       </v-row>
-      <v-row no-gutters v-if="showValid">
+      <v-row v-if="showValid" no-gutters>
         <v-col class="mx-4 my-12">
-          <v-alert type="warning" icon="mdi-alert">Invalid json format.</v-alert>
+          <v-alert type="warning" icon="mdi-alert"
+            >Invalid json format.</v-alert
+          >
         </v-col>
       </v-row>
     </v-flex>
@@ -80,20 +85,17 @@ export default {
     };
   },
   methods: {
-    toggleCompareMode: function() {
+    toggleCompareMode() {
       this.leftMode = !this.leftMode;
     },
-    compareJson: function(event) {
+    compareJson() {
       if (
         this.$isValidJson(this.leftJson) &&
         this.$isValidJson(this.rightJson)
       ) {
         const leftJson = this.leftMode ? this.leftJson : this.rightJson;
         const rightJson = this.leftMode ? this.rightJson : this.leftJson;
-        const diff = this.$applyJsonDiff(
-          this.removeSpace(leftJson),
-          this.removeSpace(rightJson)
-        );
+        const diff = this.$applyJsonDiff(leftJson, rightJson);
         this.$store.commit('setDiff', diff);
         this.showDifference = true;
         this.showValid = false;
@@ -102,14 +104,14 @@ export default {
         this.showValid = true;
       }
     },
-    resetJson: function(event) {
+    resetJson() {
       this.leftJson = '';
       this.rightJson = '';
       this.$store.commit('setDiff', { left: '', right: '' });
       this.showDifference = false;
       this.showValid = false;
     },
-    addTab: function(event, area) {
+    addTab(event, area) {
       if (event) {
         const text =
           area === 'leftArea'
@@ -133,7 +135,7 @@ export default {
           originalSelectionStart + 1;
       }
     },
-    addIndentEnter: function(event, area) {
+    addIndentEnter(event, area) {
       if (event) {
         const text =
           area === 'leftArea'
@@ -163,15 +165,15 @@ export default {
         event.target.selectionEnd = event.target.selectionStart =
           originalSelectionStart + 1 + numTabBeforeLine;
       }
-    },
-    removeSpace: function(json) {
-      return json.replace(/\r?\n/g, '').replace(/\t/g, '');
     }
   }
 };
 </script>
 
 <style lang="scss">
+.diff {
+  overflow: auto;
+}
 .btn-block {
   text-align: center;
 }

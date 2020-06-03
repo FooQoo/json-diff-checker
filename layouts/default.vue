@@ -16,7 +16,10 @@
     </v-content>
     <v-footer class="footer-block">
       <v-flex xs24 sm16 md12>
-        <v-row no-gutters style="display: flex; justify-content: center;align-items: center;">
+        <v-row
+          no-gutters
+          style="display: flex; justify-content: center;align-items: center;"
+        >
           <ShareNetwork
             network="facebook"
             url="https://json-diff-checker.fooqoo56.com/"

@@ -8,7 +8,7 @@ Vue.use(VueSocialSharing);
 Vue.component('github-badge', GitHubBadge);
 
 const diffpatcher = create({
-  objectHash: function(obj: any) {
+  objectHash(obj: any) {
     return obj.name;
   }
 });

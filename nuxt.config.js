@@ -1,5 +1,3 @@
-const colors = require('vuetify/es5/util/colors').default;
-
 module.exports = {
   mode: 'universal',
   /*
@@ -64,8 +62,8 @@ module.exports = {
           'https://json-diff-checker.fooqoo56.com/image/v1590927728/Icon_dimtxx.png'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
